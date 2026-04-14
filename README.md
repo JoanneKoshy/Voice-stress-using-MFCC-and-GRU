@@ -1,4 +1,4 @@
-# Voice Stress Detection Project
+# Voice Stress Using MFCC and GRU 
 
 ## Overview
 This project aims to detect voice stress using Mel Frequency Cepstral Coefficients (MFCC) and Gated Recurrent Units (GRU). The objective is to analyze audio data and identify stress levels based on vocal characteristics.
@@ -15,8 +15,6 @@ This project aims to detect voice stress using Mel Frequency Cepstral Coefficien
 
 ## Installation
 To set up the project, clone the repository and install the necessary packages:
-
-```bash
 git clone https://github.com/JoanneKoshy/Voice-stress-using-MFCC-and-GRU.git
 cd Voice-stress-using-MFCC-and-GRU
 pip install -r requirements.txt
@@ -38,11 +36,9 @@ pip install -r requirements.txt
 ## 🎧 Dataset
 
 Used:
-
 * RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)
 
 Contains:
-
 * Speech with multiple emotions:
 
   * Neutral, Calm, Happy, Sad, Angry, Fear, Disgust, Surprise
@@ -52,16 +48,13 @@ Contains:
 ## 🧩 Data Processing
 
 ### 1. Audio Loading
-
 * Audio files are loaded using `librosa`
 
 ### 2. Feature Extraction
-
 * MFCC (Mel-Frequency Cepstral Coefficients) extracted
 * Shape standardized to `(40, 100)`
 
 ### 3. Label Mapping
-
 Emotion → Stress:
 
 | Emotion              | Stress Level |
@@ -73,33 +66,27 @@ Emotion → Stress:
 ---
 
 ## 🤖 Model Training (Kaggle)
-
 Model trained using GPU on Kaggle.
 
 ### Steps:
-
 1. Load dataset
 2. Extract MFCC features
 3. Encode labels
 4. Train GRU model
 
 ### Model Architecture:
-
 * GRU Layer (128 units)
 * Dropout (0.3)
 * Dense Layer (64 units)
 * Output Layer (Softmax)
 
 ### Loss Function:
-
 * Categorical Crossentropy
 
 ### Optimizer:
-
 * Adam
 
 ### Output:
-
 * Saved trained model as:
 saved_model.h5
 
@@ -109,14 +96,12 @@ saved_model.h5
 ## 💻 Application Development (VS Code)
 
 After training:
-
 * Model downloaded from Kaggle
 * Integrated into a Streamlit app
 
 ---
 
 ## 🎤 Features of the App
-
 * Upload `.wav` audio file
 * Audio playback
 * Stress prediction output
@@ -124,5 +109,48 @@ After training:
 
 ---
 
-## 📂 Project Structure
+## 🧠 How It Works
 
+1. User uploads audio
+2. Audio is converted into MFCC features
+3. Features passed into trained GRU model
+4. Model predicts stress category
+5. Result displayed in UI
+
+---
+
+## 💥 Key Learnings
+
+* Audio signal processing using MFCC
+* Sequence modeling using GRU
+* End-to-end ML pipeline (data → model → app)
+* Model deployment using Streamlit
+
+---
+
+## ⚠️ Limitations
+
+* Does not truly detect "lies" (only stress patterns)
+* Depends on audio quality
+* Trained on limited dataset
+
+---
+
+## 🚀 Future Improvements
+
+* Real-time microphone input
+* Stress variation over time graph
+* Integration with speech-to-text (Whisper)
+* Multimodal analysis (voice + text)
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates how deep learning can be applied to audio data to detect emotional and stress patterns, and how to deploy such models into real-world applications.
+
+---
+
+## 👩‍💻 Author
+
+Built by **Joanne Koshy**
